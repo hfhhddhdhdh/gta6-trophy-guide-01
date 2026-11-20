@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide — GTA VI (PS5): all 55 trophies</title>
+<meta name="description" content="Offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: cited guides, platinum roadmap, missable flags, spoiler-safe checklist. No network needed.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ff5ea8'/%3E%3Cpath d='M16 6l2.2 4.8 5.3.6-3.9 3.6 1 5.2L16 17.6 11.4 20.2l1-5.2L8.5 11.4l5.3-.6z' fill='%230d1226'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div>
+      <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; works offline</p>
+      <h1>Leonida Trophy Guide</h1>
+      <p class="sub">All 55 trophies — 1 platinum, 2 gold, 6 silver, 46 bronze. No online trophies. Your progress is saved in this browser only.</p>
+    </div>
+    <div class="progress-box" aria-label="Overall progress">
+      <div class="progress-num"><span id="earnedCount">0</span><span class="of">/ 55</span></div>
+      <div class="progress-bar"><div id="progressFill"></div></div>
+      <p id="progressText" class="progress-text">0% to the platinum</p>
+      <p id="gradeCounts" class="grade-counts"></p>
+    </div>
+  </div>
+  <nav class="tabs" aria-label="Views">
+    <button type="button" class="tab active" data-view="checklist">Checklist</button>
+    <button type="button" class="tab" data-view="roadmap">Platinum roadmap</button>
+    <button type="button" class="tab" data-view="missable">Missable &amp; unconfirmed</button>
+    <button type="button" class="tab" data-view="sources">Sources &amp; method</button>
+  </nav>
+</header>
+
+<main>
+  <section id="view-checklist" class="view">
+    <div class="controls" role="search">
+      <label class="field grow">Search
+        <input id="search" type="search" placeholder="Name, description or guide text…" autocomplete="off">
+      </label>
+      <label class="field">Kind
+        <select id="kind">
+          <option value="all">All kinds</option>
+          <option value="story">Story</option>
+          <option value="side">Side missions</option>
+          <option value="collectible">Collectibles</option>
+          <option value="activity">Activities</option>
+          <option value="combat">Combat</option>
+          <option value="money">Money &amp; robberies</option>
+          <option value="world">World &amp; oddities</option>
+          <option value="completion">Platinum &amp; 100%</option>
+          <option value="online">Online</option>
+        </select>
+      </label>
+      <label class="field">Grade
+        <select id="grade">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label class="field">Status
+        <select id="status">
+          <option value="all">Earned &amp; not earned</option>
+          <option value="earned">Earned</option>
+          <option value="unearned">Not earned</option>
+        </select>
+      </label>
+      <label class="field">Sort
+        <select id="sort">
+          <option value="default">Roadmap order</option>
+          <option value="name">Name A–Z</option>
+          <option value="grade">Grade (best first)</option>
+          <option value="missable">Missable first</option>
+        </select>
+      </label>
+      <label class="check"><input id="missableOnly" type="checkbox"> Missable only</label>
+      <label class="check spoiler"><input id="spoiler" type="checkbox"> Hide story spoilers</label>
+    </div>
+    <div class="actions">
+      <span id="resultCount" class="result-count"></span>
+      <span class="spacer"></span>
+      <button id="exportBtn" type="button">Export progress</button>
+      <label class="import-btn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+      <button id="resetBtn" type="button" class="danger">Reset progress</button>
+    </div>
+    <p id="spoilerNote" class="spoiler-note" hidden>Spoiler mode is on: story trophy names, descriptions and guides stay hidden until you mark them earned.</p>
+    <div id="list" class="list"></div>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden>
+    <h2>Roadmap to the platinum</h2>
+    <p class="lede">Six stages, in order. The story first, side strands second, then activities, collectibles, money, and finally the 100% cleanup. Push Square estimates the full platinum at 300 hours or more — this is a long game, not a weekend.</p>
+    <ol id="roadmap" class="roadmap"></ol>
+  </section>
+
+  <section id="view-missable" class="view" hidden>
+    <h2>Missable &amp; unconfirmed trophies</h2>
+    <p class="lede">Good news first: all 55 trophies can be earned in a single playthrough and none needs online play (KeenGamer). “Missable” here means the condition must be met in one attempt or at one story moment — if you fail it, set it up and try again; it is not lost for the whole playthrough. Read the flag <em>before</em> you start that attempt.</p>
+    <h3>Missable — one-attempt conditions</h3>
+    <div id="missableList" class="list"></div>
+    <h3>Method not yet confirmed</h3>
+    <p class="lede">Seven trophies have no confirmed method in any cited guide yet. Their guides below say exactly that, instead of guessing. Check the linked sources for updates before grinding for them.</p>
+    <div id="unconfirmedList" class="list"></div>
+  </section>
+
+  <section id="view-sources" class="view" hidden>
+    <h2>Sources &amp; method</h2>
+    <div id="sourcesBody"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Unofficial fan-made guide. Not affiliated with Rockstar Games, Take-Two Interactive or Sony Interactive Entertainment. No Rockstar logo, artwork or game screenshots are used — the look is this guide’s own.</p>
+  <p>Names, descriptions and grades are the official PlayStation 5 list as published (55 trophies, 2026-11-18), as listed by PSNProfiles and Exophase. Guide text is original, written for this entry; every fact beyond an official description names its source beside the trophy. This app loads nothing from the network and stores your progress only in this browser (localStorage).</p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
